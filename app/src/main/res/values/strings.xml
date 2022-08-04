@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DevelopNetworkTask</string>
+    <string name="signin">Signin</string>
+    <string name="email_mobile">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="or_connect_with">Or Connect With</string>
+    <string name="facebook">Facebook</string>
+    <string name="dont_have_account">Don\'t have acount? </string>
+    <string name="google">Google</string>
+    <string name="welcome_to_app">Welcome To App</string>
+    <string name="have_account">"I have an acount "</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number_tv">Phone Number</string>
+    <string name="male">Male</string>
+    <string name="female">Femal</string>
+    <string name="sign_up">Signup</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cancel">Cancel</string>
+    <string name="password_error">Password should be more than 8 digits</string>
+    <string name="phone_error">Phone number error</string>
+    <string name="done">Login Sucess</string>
+    <string name="name">Name</string>
+</resources>

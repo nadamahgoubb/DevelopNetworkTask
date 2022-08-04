@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <!-- Drop Shadow Stack -->
+    <item>
+        <shape>
+            <padding
+                android:bottom="1.5dp"
+                android:left="1.5dp"
+                android:right="1.5dp"
+                android:top="1.5dp" />
+
+            <solid android:color="#9E9E9E" />
+
+            <corners android:radius="@dimen/_8sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:bottom="1.5dp"
+                android:left="1.5dp"
+                android:right="1.5dp"
+                android:top="1.5dp" />
+
+            <solid android:color="#9E9E9E" />
+
+            <corners android:radius="@dimen/_8sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:bottom="1.5dp"
+                android:left="1.5dp"
+                android:right="1.5dp"
+                android:top="1.5dp" />
+
+            <solid android:color="#9E9E9E" />
+
+            <corners android:radius="@dimen/_8sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:bottom="1.5dp"
+                android:left="1.5dp"
+                android:right="1.5dp"
+                android:top="1.5dp" />
+
+            <solid android:color="#9E9E9E" />
+
+            <corners android:radius="@dimen/_8sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <padding
+                android:bottom="1.5dp"
+                android:left="1.5dp"
+                android:right="1.5dp"
+                android:top="1.5dp" />
+
+            <solid android:color="#9E9E9E" />
+
+            <corners android:radius="@dimen/_8sdp" />
+        </shape>
+    </item>
+
+    <!-- Background -->
+    <item android:id="@+id/itemShape">
+        <shape>
+            <gradient
+                android:angle="0"
+                android:endColor="@color/grey_500"
+                android:startColor="@color/grey_500" />
+
+            <corners android:radius="@dimen/_8sdp" />
+        </shape>
+    </item>
+
+</layer-list>
