@@ -22,7 +22,6 @@ class ProductAdapter constructor(
 
     private var productsList: ArrayList<Product> = ArrayList()
 
-
     var hasStockOverFifty = 0//false
 
     fun getProductList(): List<Product?> {
