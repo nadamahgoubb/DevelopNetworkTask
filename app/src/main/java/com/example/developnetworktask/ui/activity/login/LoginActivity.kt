@@ -31,15 +31,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         setVm()
-        decideNextScreen()
         initView()
 
-    }
-
-    private fun decideNextScreen() {
-        lifecycleScope.launch {
-            if(DataStoreManger().readBoolean(Constants.IS_LOGGED) == true) loginSucess(null)
-        }
     }
 
     private fun setVm() {
