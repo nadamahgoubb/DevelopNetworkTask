@@ -23,7 +23,7 @@ import java.util.*
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var binding: ActivityLoginBinding
+    private  var binding: ActivityLoginBinding?=null
     private val loginVm: LoginViewModel by viewModels()
 
 
@@ -31,9 +31,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         setVm()
+        decideNextScreen()
         initView()
 
-        decideNextScreen()
     }
 
     private fun decideNextScreen() {
@@ -46,20 +46,21 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         with(binding) {
             loginVm.setActivity(this@LoginActivity)
         }
-        binding.lifecycleOwner = this
+        binding?.lifecycleOwner = this
 
     }
 
     private fun initView() {
-        binding.btnLogin.setOnClickListener(this)
-        binding.btnForgetPass.setOnClickListener(this)
-        binding.txtSignup.setOnClickListener(this)
-
-        loginVm?.userModel?.observe(this) { result ->
-            if (result.status) loginSucess(result.data)
-            else Toast.makeText(this, "An error occured: ${result.message}", Toast.LENGTH_LONG)
-                .show()
+        binding?.apply {
+           btnLogin.setOnClickListener(this@LoginActivity)
+           btnForgetPass.setOnClickListener(this@LoginActivity)
+           txtSignup.setOnClickListener(this@LoginActivity)
         }
+            loginVm?.userModel?.observe(this) { result ->
+                if (result.status) loginSucess(result.data)
+                else Toast.makeText(this, "An error occured: ${result.message}", Toast.LENGTH_LONG)
+                    .show()
+            }
 
     }
 
@@ -77,13 +78,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun checkInputs() {
 
-        if (Objects.requireNonNull(binding.etPhone).length() < 11) {
+        if (Objects.requireNonNull(binding?.etPhone)?.length()!! < 11) {
             showSnackBar(this.resources.getString(R.string.phone_error), this@LoginActivity)
-        } else if (binding.etLoginPassword.text?.length!! < 8) {
+        } else if (binding?.etLoginPassword?.text?.length!! < 8) {
             showSnackBar(this.resources.getString(R.string.password_error), this@LoginActivity)
         } else {
-            var phone = binding.etPhone.text
-            var password = binding.etLoginPassword.text
+            var phone = binding?.etPhone?.text
+            var password = binding?.etLoginPassword?.text
 
             showSnackBar(this.resources.getString(R.string.done), this@LoginActivity)
             // loginVm.login(phone.toString(), password.toString())
@@ -94,7 +95,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loginSucess(data: UserModelData?) {
-        Extension.hideProgressBar(binding.progressBar)
+        binding?.let { it?.progressBar?.let { it1 -> Extension.hideProgressBar(it1) } }
         data?.let { loginVm.saveToken(it) }
       //not right place for save IsLogged but for the task
         lifecycleScope.launch {
@@ -103,5 +104,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         var intent = Intent(this@LoginActivity, MainActivity::class.java)
         startActivity(intent)
         this.finish()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding=null
     }
 }
