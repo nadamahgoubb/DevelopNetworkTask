@@ -34,17 +34,20 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 //   checkInputs()
             }
             (R.id.txt_signin) -> {
-                var intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                startActivity(intent)
-                this.finish()
+                goToLogin()
             }
             (R.id.back) -> {
-                var intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                startActivity(intent)
-                this.finish()
+                goToLogin()
             }
 
         }
+    }
+
+    fun goToLogin() {
+        var intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        this.finish()
     }
 
     override fun onDestroy() {
